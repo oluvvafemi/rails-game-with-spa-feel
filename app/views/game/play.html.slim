@@ -1,1 +1,32 @@
 = link_to 'go home', root_url
+
+.game-container 
+  .info 
+    .indicator 
+    .
+      .score
+        | Bot 
+        span id='computerscore'
+        | -
+        span id='playerscore'
+        | You
+
+      . id='result'
+  .playground 
+    . class='area computer'
+      .buttongroups 
+        button data-computerselection='Rock'
+          = image_tag(image_url('buttons/rock.png'))
+        button data-computerselection='Paper'
+          = image_tag(image_url('buttons/paper.png'))
+        button data-computerselection='Scissors'
+          = image_tag(image_url('buttons/scissors.png'))
+    . id='divider'
+    . class='area player'
+      .buttongroups 
+        button data-playerselection='Rock'
+          = image_tag(image_url('buttons/rock.png'))
+        button data-playerselection='Paper'
+          = image_tag(image_url('buttons/paper.png'))
+        button data-playerselection='Scissors'
+          = image_tag(image_url('buttons/scissors.png'))
