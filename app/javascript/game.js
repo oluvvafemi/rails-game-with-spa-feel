@@ -35,10 +35,10 @@ function compareChoices(playerSelection, computerSelection) {
 
   if (order[computerSelection] > order[playerSelection]) {
     updateAndDisplayScore(0, 1);
-    xBeatsYcomment(computerSelection, playerSelection);
+    xBeatsYComment(computerSelection, playerSelection);
   } else {
     updateAndDisplayScore(1, 0);
-    xBeatsYcomment(playerSelection, computerSelection);
+    xBeatsYComment(playerSelection, computerSelection);
   }
 }
 
@@ -47,19 +47,7 @@ function playOneRound(playerSelection, computerSelection) {
   roundsText.textContent = round;
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
-  switch (playerSelection) {
-    case "rock":
-      compareChoices(playerSelection, computerSelection);
-      break;
-    case "paper":
-      compareChoices(playerSelection, computerSelection);
-      break;
-    case "scissors":
-      compareChoices(playerSelection, computerSelection);
-      break;
-    default:
-      break;
-  }
+  compareChoices(playerSelection, computerSelection);
   checkforWinner();
 }
 
@@ -77,7 +65,7 @@ let updateAndDisplayScore = function (
   computerScoreDisplay.textContent = computerScore;
 };
 
-let xBeatsYcomment = function (x, y) {
+let xBeatsYComment = function (x, y) {
   result.textContent = `${x} beats ${y}`;
 };
 
