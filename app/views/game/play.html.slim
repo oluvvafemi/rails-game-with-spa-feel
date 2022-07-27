@@ -1,20 +1,22 @@
 - content_for :head 
   = javascript_import_module_tag 'game'
-  
+
 = link_to 'go home', root_url
 
 .game-container 
   .info 
     .indicator 
-    .
+    .result-score
       .score
         | Bot 
         span id='computerscore'
-        | -
+        | - 
         span id='playerscore'
         | You
 
       . id='result'
+  .rounds
+    | round 1/5
   .playground 
     . class='area computer'
       .buttongroups 
