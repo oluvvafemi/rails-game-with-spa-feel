@@ -11,6 +11,7 @@ function computerPlay() {
 function compareChoices(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     playedSameKindComment(playerSelection);
+    updateAndDisplayScore(0, 0);
     return;
   }
 
@@ -43,24 +44,27 @@ function compareChoices(playerSelection, computerSelection) {
 }
 
 function playOneRound(playerSelection, computerSelection) {
-  round += 1;
-  roundsText.textContent = round;
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
   compareChoices(playerSelection, computerSelection);
-  checkforWinner();
+  checkForWinner();
 }
 
 let updateAndDisplayScore = function (
-  playerwin = 0,
-  computerwin = 0,
-  gameover = false
+  playerPointForRound = 0,
+  computerPointForRound = 0,
+  gameOver = false
 ) {
-  if (gameover) {
+  if (gameOver) {
     playerScore = computerScore = 0;
+    result.textContent = "";
+    round = 0;
+  } else {
+    round += 1;
   }
-  playerScore += playerwin;
-  computerScore += computerwin;
+  playerScore += playerPointForRound;
+  computerScore += computerPointForRound;
+  roundsText.textContent = round;
   playerScoreDisplay.textContent = playerScore;
   computerScoreDisplay.textContent = computerScore;
 };
@@ -75,9 +79,6 @@ let playedSameKindComment = function (kind) {
 
 let prepareNewGame = function () {
   updateAndDisplayScore(0, 0, true);
-  result.textContent = "";
-  round = 0;
-  roundsText.textContent = round;
   indicator.classList.remove("off");
 };
 
@@ -106,7 +107,7 @@ let winnerText = function (playerScore, computerScore) {
     ? "You Win the Game!"
     : "Computer Wins the Game!";
 };
-let checkforWinner = function () {
+let checkForWinner = function () {
   if (round < 5) return;
 
   result.textContent = winnerText(playerScore, computerScore);
