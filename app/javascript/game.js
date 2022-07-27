@@ -43,6 +43,8 @@ function compareChoices(playerSelection, computerSelection) {
 }
 
 function playOneRound(playerSelection, computerSelection) {
+  round += 1;
+  roundsText.textContent = round;
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
   switch (playerSelection) {
@@ -58,6 +60,7 @@ function playOneRound(playerSelection, computerSelection) {
     default:
       break;
   }
+  checkforWinner();
 }
 
 let updateAndDisplayScore = function (
@@ -85,6 +88,8 @@ let playedSameKindComment = function (kind) {
 let prepareNewGame = function () {
   updateAndDisplayScore(0, 0, true);
   result.textContent = "";
+  round = 0;
+  roundsText.textContent = round;
   indicator.classList.remove("off");
 };
 
@@ -106,21 +111,28 @@ let restartWindow = function () {
   allButtonsReset();
 };
 
+let winnerText = function (playerScore, computerScore) {
+  if (playerScore === computerScore) return "It is a draw";
+
+  return playerScore > computerScore
+    ? "You Win the Game!"
+    : "Computer Wins the Game!";
+};
 let checkforWinner = function () {
-  if (playerScore < 5 && computerScore < 5) return;
-  result.textContent =
-    playerScore > computerScore
-      ? "You Win the Game!"
-      : "Computer Wins the Game!";
+  if (round < 5) return;
+
+  result.textContent = winnerText(playerScore, computerScore);
   restartWindow();
 };
 
 let playerScore;
 let computerScore;
+let round = 0;
 const playerScoreDisplay = document.querySelector("#playerscore");
 const computerScoreDisplay = document.querySelector("#computerscore");
 const playerButtons = document.querySelectorAll(".player button");
 const result = document.querySelector("#result");
+const roundsText = document.querySelector("#rounds-text");
 const computerButtons = document.querySelectorAll(".computer button");
 const indicator = document.querySelector(".indicator");
 const playground = document.querySelector(".playground");
@@ -138,7 +150,6 @@ playerButtons.forEach((button) =>
     button.classList.add("press");
     computerButton.classList.add("press");
     playOneRound(button.dataset.playerselection, computerSelection);
-    checkforWinner();
   })
 );
 
