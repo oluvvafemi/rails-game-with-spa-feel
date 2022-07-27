@@ -1,14 +1,14 @@
-function getRandomInt(max) {
+let getRandomInt = function (max) {
   return Math.floor(Math.random() * max);
-}
+};
 
-function computerPlay() {
+let computerPlay = function () {
   const mode = ["Rock", "Paper", "Scissors"];
   let randomNumber = getRandomInt(3);
   return mode[randomNumber];
-}
+};
 
-function compareChoices(playerSelection, computerSelection) {
+let compareChoices = function (playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     playedSameKindComment(playerSelection);
     updateAndDisplayScore(0, 0);
@@ -41,14 +41,14 @@ function compareChoices(playerSelection, computerSelection) {
     updateAndDisplayScore(1, 0);
     xBeatsYComment(playerSelection, computerSelection);
   }
-}
+};
 
-function playOneRound(playerSelection, computerSelection) {
+let playOneRound = function (playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
   compareChoices(playerSelection, computerSelection);
   checkForWinner();
-}
+};
 
 let updateAndDisplayScore = function (
   playerPointForRound = 0,
