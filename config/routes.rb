@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
-
   root 'users#show'
 
-  get '/play', to: 'game#play', as: 'game'
+  get '/play', to: 'games#play', as: 'game'
+
+  devise_for :users, controllers: { registrations: 'registrations' }
 end
