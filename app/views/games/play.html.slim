@@ -10,31 +10,33 @@
       .score
         | Bot 
         span id='computerscore'
+          = @current_game_data['computer_score']
         | - 
         span id='playerscore'
+          = @current_game_data['player_score']
         | You
 
       . id='result'
   .rounds
     | round 
     span id='rounds-text'
-      | 0
+      = @current_game_data['round']
     | /5
   .playground 
     . class='area computer'
       .buttongroups 
-        button data-computerselection='Rock'
+        button data-computerselection='rock'
           = image_tag(image_url('buttons/rock.png'))
-        button data-computerselection='Paper'
+        button data-computerselection='paper'
           = image_tag(image_url('buttons/paper.png'))
-        button data-computerselection='Scissors'
+        button data-computerselection='scissors'
           = image_tag(image_url('buttons/scissors.png'))
     . id='divider'
     . class='area player'
       .buttongroups 
-        button data-playerselection='Rock'
+        button data-playerselection='rock'
           = image_tag(image_url('buttons/rock.png'))
-        button data-playerselection='Paper'
+        button data-playerselection='paper'
           = image_tag(image_url('buttons/paper.png'))
-        button data-playerselection='Scissors'
+        button data-playerselection='scissors'
           = image_tag(image_url('buttons/scissors.png'))

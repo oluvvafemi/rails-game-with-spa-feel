@@ -1,6 +1,9 @@
 class GamesController < ApplicationController
   before_action :setup_game
-  def play; end
+  def play
+    session[:game] = { 'round' => 0, 'player_score' => 0, 'computer_score' => 0 } unless session[:game]
+    @current_game_data = session[:game]
+  end
 
   private
 
