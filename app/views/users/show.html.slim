@@ -10,6 +10,13 @@ p
   = @draws
   p Games 
   = @games_played
+  .leader-board 
+    p Leader Board 
+    - @leaders.each do |leader|
+      span class='leader-name'
+        = leader['name']
+      span class='leader-score'
+        = leader['count']
   . data-turbo="false"
     = link_to 'Start New Game', game_url 
   .signout
