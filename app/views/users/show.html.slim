@@ -10,7 +10,8 @@ p
   = current_user.games.where('status = ?', 'draw').count
   p Games 
   = current_user.games.count
-  = link_to 'Start New Game', game_url 
+  . data-turbo="false"
+    = link_to 'Start New Game', game_url 
   .signout
     = link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure you wanna sign out?" }
 
