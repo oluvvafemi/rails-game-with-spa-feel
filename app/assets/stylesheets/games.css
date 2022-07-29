@@ -52,7 +52,7 @@
 }
 
 .games .computer button, .games .player button {
-  transition: 1.05s;
+  transition: 0.3s;
 }
 
 .games .press {
