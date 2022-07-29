@@ -7,13 +7,13 @@ class GamesController < ApplicationController
   end
 
   def round
-    round_result = GameRound.new(params[:player_selection], session[:game]).play
+    round_result = GameRound.new(params[:player_selection], session).play
     session[:game] = round_result[2]
     if round_result[0]
-      render json: { "computer_selection": round_result[1], "game_data": session[:game], commentary: round_result[3] },
-             status: :ok
+      render json: { "computer_selection": round_result[1], "game_data": session[:game], commentary: round_result[4],
+                     "game_status": round_result[3] }
     else
-      render json: { error: "can't play more than 5 rounds per game" }, status: :unprocessable_entity
+      render json: { error: "can't play more than 5 rounds" }, status: :unprocessable_entity
     end
   end
 
@@ -21,7 +21,10 @@ class GamesController < ApplicationController
 
   def setup_game
     @game = current_user.games.create
-    redirect_to root_path, alert: 'Unable to launch new game' unless @game.save
+    game_saved = @game.save
+    session[:game_id] = @game.id if game_saved
+
+    redirect_to root_path, alert: 'Unable to launch new game' unless game_saved
   end
 
   def check_player_input
