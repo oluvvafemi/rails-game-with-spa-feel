@@ -17,6 +17,10 @@ class GamesController < ApplicationController
     end
   end
 
+  def restart
+    render json: { info: 'starting new session' }, location: game_path, status: :found
+  end
+
   private
 
   def setup_game

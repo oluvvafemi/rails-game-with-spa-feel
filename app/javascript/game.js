@@ -81,3 +81,14 @@ playerButtons.forEach((button) =>
 computerButtons.forEach((button) =>
   button.addEventListener("transitionend", buttonRestPosition)
 );
+
+restartButton.addEventListener("click", () => {
+  fetch(`${location.origin}/restart`, {
+    mode: "same-origin",
+    redirect: "follow",
+  }).then((response) => {
+    if (response.redirected) {
+      window.location.href = response.url;
+    }
+  });
+});
