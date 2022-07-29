@@ -3,13 +3,13 @@ p
   = current_user.name
 . 
   p Wins 
-  = @wins
+  = @user_data[:wins]
   p Losses 
-  = @losses
+  = @user_data[:losses]
   p Draws 
-  = @draws
+  = @user_data[:draws]
   p Games 
-  = @games_played
+  = @user_data[:games_played]
   .leader-board 
     p Leader Board 
     - @leaders.each do |leader|
