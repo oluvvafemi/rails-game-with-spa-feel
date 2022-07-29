@@ -4,8 +4,10 @@ p
 . 
   p Wins 
   = current_user.games.where('status = ?', 'win').count
-  p Loss 
+  p Losses 
   = current_user.games.where('status = ?', 'loss').count
+  p Draws 
+  = current_user.games.where('status = ?', 'draw').count
   p Games 
   = current_user.games.count
   = link_to 'Start New Game', game_url 
