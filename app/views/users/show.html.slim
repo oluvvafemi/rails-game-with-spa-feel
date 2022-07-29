@@ -3,13 +3,13 @@ p
   = current_user.name
 . 
   p Wins 
-  = current_user.games.where('status = ?', 'win').count
+  = @wins
   p Losses 
-  = current_user.games.where('status = ?', 'loss').count
+  = @losses
   p Draws 
-  = current_user.games.where('status = ?', 'draw').count
+  = @draws
   p Games 
-  = current_user.games.count
+  = @games_played
   . data-turbo="false"
     = link_to 'Start New Game', game_url 
   .signout
