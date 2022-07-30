@@ -12,8 +12,18 @@ html
     = javascript_importmap_tags
     = yield :head
   body class=controller.controller_name
-    p class="notice"
-      = notice
-    p class="alert"
-      = alert
-    = yield
+    .content
+      p class="notice"
+        = notice
+      p class="alert"
+        = alert
+      = yield
+    .sidebar 
+      .title 
+        | RPS 
+      .subtitle 
+        | Rock Paper Scissors
+      .footer 
+        | &copy 
+        a href='https://chrisadebiyi.com' target='_blank'
+          | Chris Oluwafemi Adebiyi 
