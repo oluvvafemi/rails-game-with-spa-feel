@@ -1,0 +1,86 @@
+.devise {
+  width: 300px;
+  box-shadow: 0 0 6px 3px rgba(0,0,0,.06);
+  border-radius: 20px;
+  padding: 34px;
+}
+
+.devise h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.devise .input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.devise input[type=password], .devise input[type=email], .devise input[type=text] {
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #CFBCF2;
+  background-color: #EAE2F8;
+}
+
+#user_remember_me {
+  margin-right: 10px;
+  /* margin-bottom: 16px; */
+}
+.devise label {
+  font-size: 10px;
+}
+
+.devise input[type=submit] {
+  border: none;
+  background-color: #240754;
+  color: #FAFAFA;
+  padding: 12px;
+  border-radius: 35px;
+  font-size: 16px;
+}
+
+.devise .form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.devise .form-actions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.devise a {
+  text-decoration: none;
+  font-size: 10px;
+  color: #9EA7C0;
+}
+
+.devise .shared-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12px;
+  gap: 10px;
+}
+
+.devise .shared-links a:first-child {
+  color: #243B53;
+}
+
+.devise .hint {
+  font-size: 8px;
+}
+
+.sessions .content, .passwords .content, .registrations .content, .confirmations .content {
+  justify-content: center;
+}
+@media  (max-width:700px) {
+  .devise {
+    width: 70vw;
+  }
+}
