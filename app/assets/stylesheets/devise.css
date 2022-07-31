@@ -22,7 +22,10 @@
   height: 30px;
   border-radius: 10px;
   border: 1px solid #CFBCF2;
-  background-color: #EAE2F8;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  overflow: hidden;
+  outline: none;
 }
 
 #user_remember_me {
