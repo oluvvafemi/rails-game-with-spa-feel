@@ -1,7 +1,8 @@
 - content_for :head 
   = javascript_import_module_tag 'game'
 
-= link_to 'go home', root_url
+.go-home
+  = link_to 'go home', root_url
 
 .game-container 
   .info 
@@ -11,19 +12,22 @@
         | Bot 
         span id='computerscore'
           = @current_game_data['computer_score']
-        | - 
+        |  - 
         span id='playerscore'
           = @current_game_data['player_score']
-        | You
+        |  You
 
       . id='result'
-  .rounds
-    | round 
-    span id='rounds-text'
-      = @current_game_data['round']
-    | /5
+        | - -
+      .rounds
+        | round 
+        span id='rounds-text'
+          = @current_game_data['round']
+        | /5
   .playground 
     . class='area computer'
+      .bot-marker
+        | Bot
       .buttongroups 
         button data-computerselection='rock'
           = image_tag(image_url('buttons/rock.png'))
@@ -32,7 +36,10 @@
         button data-computerselection='scissors'
           = image_tag(image_url('buttons/scissors.png'))
     . id='divider'
+      | v
     . class='area player'
+      .player-marker 
+        | You
       .buttongroups 
         button data-playerselection='rock'
           = image_tag(image_url('buttons/rock.png'))

@@ -47,6 +47,7 @@ const indicator = document.querySelector(".indicator");
 const playground = document.querySelector(".playground");
 const container = document.querySelector(".game-container");
 const restartButton = document.createElement("button");
+restartButton.setAttribute("id", "restartButton");
 
 playerButtons.forEach((button) =>
   button.addEventListener("click", () => {

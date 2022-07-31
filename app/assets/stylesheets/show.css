@@ -9,6 +9,7 @@
   flex-direction: column;
   font-size: 14px;
   opacity: .76;
+  margin-bottom: 20px;
 }
 
 .users .content {
@@ -60,7 +61,7 @@
 }
 
 .users .stats {
-  box-shadow: 0 0 6px 3px rgba(0,0,0,.06);
+  box-shadow: 0 0 6px 3px rgba(0,0,0,.25);
   padding: 40px 25px 30px 25px;
   border-radius: 20px;
   display: flex;
@@ -85,7 +86,7 @@
   border-radius: 30px;
 }
 
-@media  (max-width:1100px) {
+@media  (max-width:850px) {
   .users .sidebar {
     flex-direction: column-reverse;
     flex: 1;
@@ -97,7 +98,7 @@
   }
 }
 
-@media (min-width:1101px) {
+@media (min-width:851px) {
   .users .content {
     padding-top: 100px;
   }
