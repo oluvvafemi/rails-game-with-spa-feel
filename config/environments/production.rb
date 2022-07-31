@@ -70,10 +70,10 @@ Rails.application.configure do
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
+    address: 'in-v3.mailjet.com',
     port: 587,
-    user_name: ENV['GMAIL_USERNAME'],
-    password: ENV['GMAIL_PASSWORD'],
+    user_name: ENV['MAILJET_PUBLIC'],
+    password: ENV['MAILJET_PRIVATE'],
     authentication: 'plain',
     enable_starttls_auto: true
   }
