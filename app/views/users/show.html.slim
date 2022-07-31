@@ -1,25 +1,58 @@
-p 
-  | Welcome @
-  = current_user.name
-. 
-  p Wins 
-  = @user_data[:wins]
-  p Losses 
-  = @user_data[:losses]
-  p Draws 
-  = @user_data[:draws]
-  p Games 
-  = @user_data[:games_played]
+- content_for :board 
   .leader-board 
-    p Leader Board 
-    - @leaders.each do |leader|
-      span class='leader-name'
-        = leader['name']
-      span class='leader-score'
-        = leader['count']
-  . data-turbo="false"
-    = link_to 'Start New Game', game_url 
+    p Leaderboard 
+    table 
+      tr 
+        th class='head'
+          | player 
+        th class='head'
+          | wins
+      - @leaders.each do |leader|
+        tr
+          td class='entries leader-name'
+            = leader['name']
+          td class='entries leader-score'
+            = leader['count']
+.name-and-exit
+  .name 
+    | @
+    = current_user.name
   .signout
-    = link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure you wanna sign out?" }
-
-.leader-board 
+      = link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete}
+.stats 
+  table 
+    tr 
+      td 
+        = @user_data[:games_played]
+      td class='stat-labels'
+        - if @user_data[:games_played] > 1 || @user_data[:games_played] == 0
+          = 'games played'
+        - else
+          = 'game played'
+    tr 
+      td 
+        = @user_data[:wins] 
+      td class='stat-labels'
+        - if @user_data[:wins] > 1 || @user_data[:wins] == 0
+          = 'wins'
+        - else
+          = 'win'
+    tr 
+      td 
+        = @user_data[:losses]
+      td class='stat-labels'
+        - if @user_data[:losses] > 1 || @user_data[:losses] == 0
+          = 'losses'
+        - else
+          = 'loss'
+    tr 
+      td 
+        = @user_data[:draws]
+      td class='stat-labels'
+        - if @user_data[:draws] > 1 || @user_data[:draws] == 0
+          = 'draws'
+        - else
+          = 'draw'
+  . data-turbo="false" class='launch-button'
+    = link_to 'Launch New Game', game_url 
+  

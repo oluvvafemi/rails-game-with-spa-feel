@@ -13,17 +13,19 @@ html
     = yield :head
   body class=controller.controller_name
     .content
-      p class="notice"
+      .notice
         = notice
-      p class="alert"
+      .alert
         = alert
       = yield
-    .sidebar 
-      .title 
-        | RPS 
-      .subtitle 
-        | Rock Paper Scissors
-      .footer 
+    .sidebar
+      .logo 
+        .title 
+          | RPS 
+        .subtitle 
+          | Rock Paper Scissors
+      = yield :board
+      .footer
         | &copy 
         a href='https://chrisadebiyi.com' target='_blank'
           | Chris Oluwafemi Adebiyi 
