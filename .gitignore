@@ -32,3 +32,6 @@
 
 # Ignore rubocop config
 .rubocop.yml
+
+# Ignore fly.toml
+fly.toml
